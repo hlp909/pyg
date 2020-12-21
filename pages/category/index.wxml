@@ -1,2 +1,4 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<view>
+     <!-- 搜索框 -->
+  <SearchInput></SearchInput>
+</view>
