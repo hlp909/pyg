@@ -1,11 +1,13 @@
-// pages/category/index.js
+import { request } from "../../request/index.js"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    current:0
+    current:0,
+    // 、、分类列表
+    cateList:[]
   },
 
   handleClick(e){
@@ -26,7 +28,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    //获取分页数据
+    request({
+      url:"https://api-hmugo-web.itheima.net/api/public/v1/categories"
+    }).then(result=>{
+      this.setData({
+        cateList: result.data.message
+      })
+    })
   },
 
   /**

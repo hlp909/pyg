@@ -1,31 +1,33 @@
 <view>
-     <!-- 搜索框 -->
+  <!-- 搜索框 -->
   <SearchInput></SearchInput>
 
   <view class="container">
     <!-- 左侧菜单列表 -->
-    <view class="menu">
-      <view class="menu-item {{current===index?'active':''}}"
-      wx:for="{{[1,2,3,4,5,6,7,8,9,11,12,13,14]}}"
-      wx:key="{{index}}"
-      bindtap="handleClick"
-      data-index="{{index}}"
-      >
-      电器{{index}}
+      <view class="menu">
+        <view class="menu-item {{current===index?'active':''}}" wx:for="{{cateList}}" wx:key="{{index}}" bindtap="handleClick" data-index="{{index}}">
+          {{item.cat_name}}
+        </view>
       </view>
-    </view>
-   <!-- 右侧品牌列表 -->
-    <view class="content">
-      <view class="brand_title">/  电视  /</view>
-      <view class="brands">
-        <navigator url="" 
-        class="brand-item" 
-        wx:for="{{[1,1,1,1,1,11,1,1,11,1,1]}}" 
+      
+      <!-- 右侧品牌列表 -->
+      <view class="content">
+        <view 
+        wx:for="{{cateList[current].children}}" 
         wx:key="{{index}}">
-         <image src="https://api-hmugo-web.itheima.net/full/2fb113b32f7a2b161f5ee4096c319afedc3fd5a1.jpg" mode="aspectFix" ></image>
-         <view class="brand-content">曲面电视</view>
-      </navigator>
+           <!-- 标题 -->
+          <view class="brand-title">/ {{item.cat_name}}/</view>
+
+          <view class="brands">
+            <navigator url="" 
+            class="brand-item" 
+            wx:for="{{item.children}}" 
+            wx:key="{{index}}">
+              <image src="{{item.cat_icon}}" mode="aspectFix"></image>
+              <view class="brand-content">{{item.cat_name}}</view>
+            </navigator>
+          </view>
+        </view>
       </view>
-    </view>
   </view>
 </view>
