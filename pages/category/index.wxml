@@ -1,4 +1,17 @@
 <view>
      <!-- 搜索框 -->
   <SearchInput></SearchInput>
+
+  <view class="container">
+    <view class="menu">
+      <view class="menu-item"
+      wx:for="{{[1,2,3,4,5,6,7,8,9,11,12,13,14]}}"
+      wx:key="{{index}}"
+      >
+      电器{{index}}
+      </view>
+    </view>
+   
+    <view class="content">会变的内容</view>
+  </view>
 </view>
