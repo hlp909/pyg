@@ -15,3 +15,19 @@
   line-height: 100rpx;
   text-align: center;
 }
+.active{
+  background: #fff;
+  color: red;
+  position: relative;
+}
+.active::before{
+  display: block;
+  content: "";
+  width: 3rpx;
+  height: 60rpx;
+  background: red;
+  position: absolute;
+  left: 0;
+  top: 20rpx;
+
+}
