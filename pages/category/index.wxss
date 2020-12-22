@@ -36,7 +36,9 @@
 .content{
   flex:1;
   padding: 20rpx;
-  overflow-y: scroll;
+}
+.content .brand-title .delimiter{
+  color: #ddd;
 }
 .brand-title{
   margin: 20rpx 0;

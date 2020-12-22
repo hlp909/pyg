@@ -1,2 +1,22 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<view class="search_input">
+  <navigator url="/pages/search/index" open-type="navigate">
+    <icon type="search" size="20"></icon>
+    搜索</navigator>
+</view>
+
+<view class="goods">
+  <view class="goods-title">
+    <view class="active">综合</view>
+    <view>销量</view>
+    <view>价格</view>
+  </view>
+
+  <navigator url="" class="goods-item">
+    <image src="http://image1.suning.cn/uimg/b2c/newcatentries/0070134290-000000000149003877_1_800x800.jpg" mode="aspectFill"></image>
+    <view class="item-right">
+      <view class="item-title">张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁</view>
+      <view class="item-price">￥99.99</view>
+    </view>
+  </navigator>
+
+</view>

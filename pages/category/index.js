@@ -7,13 +7,16 @@ Page({
   data: {
     current:0,
     // 、、分类列表
-    cateList:[]
+    cateList:[],
+    scrollTop:0
   },
 
+// 左侧菜单的点击事件
   handleClick(e){
     const { index } = e.currentTarget.dataset;
     this.setData({
-      current:index
+      current:index,
+      scrollTop: 0
     })
   },
 
@@ -34,6 +37,7 @@ Page({
     }).then(result=>{
       this.setData({
         cateList: result.data.message
+        
       })
     })
   },

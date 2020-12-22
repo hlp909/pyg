@@ -4,30 +4,28 @@
 
   <view class="container">
     <!-- 左侧菜单列表 -->
-      <view class="menu">
-        <view class="menu-item {{current===index?'active':''}}" wx:for="{{cateList}}" wx:key="{{index}}" bindtap="handleClick" data-index="{{index}}">
-          {{item.cat_name}}
-        </view>
+    <view class="menu">
+      <view class="menu-item {{current===index?'active':''}}" wx:for="{{cateList}}" wx:key="{{index}}" bindtap="handleClick" data-index="{{index}}">
+        {{item.cat_name}}
       </view>
-      
-      <!-- 右侧品牌列表 -->
-      <view class="content">
-        <view 
-        wx:for="{{cateList[current].children}}" 
-        wx:key="{{index}}">
-           <!-- 标题 -->
-          <view class="brand-title">/ {{item.cat_name}}/</view>
+    </view>
 
-          <view class="brands">
-            <navigator url="" 
-            class="brand-item" 
-            wx:for="{{item.children}}" 
-            wx:key="{{index}}">
-              <image src="{{item.cat_icon}}" mode="aspectFix"></image>
-              <view class="brand-content">{{item.cat_name}}</view>
-            </navigator>
-          </view>
+    <!-- 右侧品牌列表 -->
+    <scroll-view class="content" scroll-top="{{scrollTop}}" scroll-y>
+      <view wx:for="{{cateList[current].children}}" wx:key="{{index}}">
+        <!-- 标题 -->
+
+        <view class="brand-title">
+          <text class="delimiter">/ </text>{{item.cat_name}}<text class="delimiter"> /</text>
+        </view>
+
+        <view class="brands">
+          <navigator url="" class="brand-item" wx:for="{{item.children}}" wx:key="{{index}}">
+            <image src="{{item.cat_icon}}" mode="aspectFill"></image>
+            <view class="brand-content">{{item.cat_name}}</view>
+          </navigator>
         </view>
       </view>
+    </scroll-view>
   </view>
 </view>
