@@ -19,7 +19,7 @@
   display: flex;
   justify-content: space-around;
   padding: 20rpx;
-  border-bottom: 2rpx solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .goods .goods-title .active {
@@ -28,9 +28,9 @@
 
 .goods-item {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 20rpx;
-  border-bottom: 2rpx solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .goods-item image {

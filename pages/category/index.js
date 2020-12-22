@@ -33,7 +33,7 @@ Page({
   onReady: function () {
     //获取分页数据
     request({
-      url:"https://api-hmugo-web.itheima.net/api/public/v1/categories"
+      url:"/categories"
     }).then(result=>{
       this.setData({
         cateList: result.data.message

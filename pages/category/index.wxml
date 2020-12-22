@@ -20,7 +20,10 @@
         </view>
 
         <view class="brands">
-          <navigator url="" class="brand-item" wx:for="{{item.children}}" wx:key="{{index}}">
+          <navigator url="/pages/goods_list/index?query={{item.cat_name}}" 
+          class="brand-item" 
+          wx:for="{{item.children}}" 
+          wx:key="{{index}}">
             <image src="{{item.cat_icon}}" mode="aspectFill"></image>
             <view class="brand-content">{{item.cat_name}}</view>
           </navigator>
