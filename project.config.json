@@ -65,6 +65,28 @@
 					"id": -1,
 					"name": "pages/goods_list/index",
 					"pathName": "pages/goods_list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/goods_list/index",
+					"pathName": "pages/goods_list/index",
+					"query": "query=\"曲面电视\"",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/goods_list/index",
+					"pathName": "pages/goods_list/index",
+					"query": "query={{曲面电视}}",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/goods_list/index",
+					"pathName": "pages/goods_list/index",
+					"query": "query=曲面电视",
 					"scene": null
 				}
 			]

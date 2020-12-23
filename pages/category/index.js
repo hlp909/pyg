@@ -24,22 +24,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //获取分页数据
+    request({
+      url: "/categories"
+    }).then(result => {
+      this.setData({
+        cateList: result.data.message
 
+      })
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    //获取分页数据
-    request({
-      url:"/categories"
-    }).then(result=>{
-      this.setData({
-        cateList: result.data.message
-        
-      })
-    })
+   
   },
 
   /**
