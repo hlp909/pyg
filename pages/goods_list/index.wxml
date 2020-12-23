@@ -11,16 +11,22 @@
     <view>价格</view>
   </view>
 
+  <!-- 可以循环的商品列表 -->
   <navigator 
   wx:for="{{goods}}"
   wx:key="{{index}}"
   url="" 
   class="goods-item">
     <image src="{{item.goods_small_logo}}" mode="aspectFill"></image>
+
+    <!-- 商品列表右侧 -->
     <view class="item-right">
       <view class="item-title">{{item.goods_name}}</view>
       <view class="item-price">￥{{item.goods_price}}</view>
     </view>
   </navigator>
 
+  <!-- 加载更多数据 -->
+  <view class="loading" wx:if="{{hasMore}}">正在加载...</view>
+  <view class="loading" wx:if="{{!hasMore}}">我也是有底线的</view>
 </view>

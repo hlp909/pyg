@@ -55,3 +55,9 @@
 .item-price{
   color: red;
 }
+
+.loading{
+  color:#ccc;
+  padding: 15rpx;
+  text-align: center;
+}
