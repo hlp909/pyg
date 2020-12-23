@@ -37,10 +37,20 @@ Page({
       }
     }).then(result => {
       const { goods } = result.data.message;
+
+      // 判断是否到了最后一页
+      if(goods.length<10){
+        this.setData({
+          hasMore:false
+        })
+      }
+
+      // 给每个商品的价格保留两位小数点
       const newGoods = goods.map(v => {
         v.goods_price = Number(v.goods_price).toFixed(2)
         return v;
       })
+      // 合并数据
       this.setData({
         goods: [...this.data.goods, ...newGoods]
       })
@@ -49,12 +59,14 @@ Page({
 
   // 加载更多数据
   onReachBottom(){
-    // 请求下一页数据
-    this.setData({
-      pageNum: this.data.pageNum + 1,
-      
-    })
-   
-    this.getList();
-  }
+    // 有更多数据的时候才请求下一页数据
+    if(this.data.hasMore){
+        // 请求下一页数据
+        this.setData({
+          pageNum: this.data.pageNum + 1,
+        })
+        this.getList();
+      }
+    }
+    
 })
