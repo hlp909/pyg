@@ -11,7 +11,10 @@ Page({
     goods:[],
     //是否加载很多
     hasMore:true,
-    pageNum:1
+    // 当前页数
+    pageNum:1,
+    // 函数节流，判断上次请求是否成功，成功之后再允许请求下一页数据
+    loading:false
   },
 
   /**
@@ -28,6 +31,16 @@ Page({
 
 // 请求列表数据
   getList(){
+    // 正在加载
+    if(this.data.loading===true){
+      return;
+    }
+
+    // 开始加载数据
+    this.setData({
+      loading:true
+    })
+
     request({
       url: '/goods/search',
       data: {
@@ -52,7 +65,11 @@ Page({
       })
       // 合并数据
       this.setData({
-        goods: [...this.data.goods, ...newGoods]
+        goods: [...this.data.goods, ...newGoods],
+        // 请求下一页数据
+        pageNum: this.data.pageNum + 1,
+          // 请求成功之后把loading改为false
+        loading: false
       })
     })
   },
@@ -61,12 +78,11 @@ Page({
   onReachBottom(){
     // 有更多数据的时候才请求下一页数据
     if(this.data.hasMore){
-        // 请求下一页数据
-        this.setData({
-          pageNum: this.data.pageNum + 1,
-        })
+      setTimeout(()=>{
+        
         this.getList();
-      }
+      },2000)
+       
+      }  
     }
-    
 })
