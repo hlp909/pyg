@@ -1,16 +1,18 @@
-<swiper indicator-dots class="swiper">
-        <block wx:for="{{[1,1,1,1]}}" wx:key="{{index}}">
+<!-- 轮播图 -->
+<swiper indicator-dots class="swiper" >
+        <block wx:for="{{detail.pics}}" wx:key="{{index}}">
           <swiper-item>
-            <image src="http://image1.suning.cn/uimg/b2c/newcatentries/0070134290-000000000149003877_1_800x800.jpg" mode="aspectFill"></image>
+            <image src="{{item.pics_big}}" mode="aspectFill"></image>
           </swiper-item>
         </block>
 </swiper>
 
+<!-- 商品信息 -->
 <view class="goods-info">
-  <view class="goods-price">￥279</view>
+  <view class="goods-price">￥{{detail.goods_price}}</view>
   <view class="goods-title">
       <view class="goods-title-left">
-          张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁
+         {{detail.goods_name}}
       </view>
 
       <view class="goods-star">
@@ -21,3 +23,6 @@
 
   <view class="express">快递：免运费</view>
 </view>
+
+  <!-- 商品详情 -->
+<rich-text nodes="{{detail.goods_introduce}}"></rich-text>

@@ -12,6 +12,7 @@ swiper image{
  .goods-price{
   font-size: 22px;
   color: var(--themeColor);
+  margin-bottom: 20rpx;
 }
  .goods-title{
   display: flex;
