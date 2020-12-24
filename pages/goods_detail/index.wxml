@@ -1,2 +1,23 @@
-<!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<swiper indicator-dots class="swiper">
+        <block wx:for="{{[1,1,1,1]}}" wx:key="{{index}}">
+          <swiper-item>
+            <image src="http://image1.suning.cn/uimg/b2c/newcatentries/0070134290-000000000149003877_1_800x800.jpg" mode="aspectFill"></image>
+          </swiper-item>
+        </block>
+</swiper>
+
+<view class="goods-info">
+  <view class="goods-price">￥279</view>
+  <view class="goods-title">
+      <view class="goods-title-left">
+          张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁张常宁
+      </view>
+
+      <view class="goods-star">
+          <view class="iconfont icon-shoucang1"></view>
+          <text>收藏</text>
+      </view>
+  </view>
+
+  <view class="express">快递：免运费</view>
+</view>
