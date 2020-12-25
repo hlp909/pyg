@@ -1,1 +1,11 @@
-/* pages/cart/index.wxss */
+.address{
+  font-weight: normal;
+  font-size: 14px;
+  margin: 15rpx 0;
+}
+.cart-title{
+  border-top: 1px solid #ebafab;
+  border-bottom: 1px solid #ebafab;
+  font-size: 14px;
+  padding: 15rpx;
+}

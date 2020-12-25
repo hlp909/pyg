@@ -75,7 +75,6 @@ Page({
       title: '加入成功',
       icon: 'success',
       mask: true,
-
     })
   },
   

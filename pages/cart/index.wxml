@@ -1,2 +1,7 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<button 
+class="address" 
+type="primary" 
+plain="true"
+bindtap="addAddress"
+>添加收货地址</button>
+<view class="cart-title">购物车</view>
