@@ -1,11 +1,17 @@
 <view class="container">
   <!-- 轮播图 -->
   <swiper indicator-dots class="swiper">
-    <block wx:for="{{detail.pics}}" wx:key="{{index}}">
-      <swiper-item>
-        <image src="{{item.pics_big}}" mode="aspectFill"></image>
+      <swiper-item 
+      wx:for="{{detail.pics}}" 
+      wx:key="{{pics_id}}" 
+      bindtap="handlePreviewImage" 
+      data-url="{{item.pics_big}}"
+      >
+        <image 
+        src="{{item.pics_big}}" 
+        mode="aspectFill" 
+       ></image>
       </swiper-item>
-    </block>
   </swiper>
 
   <!-- 商品信息 -->
@@ -33,10 +39,8 @@
 <!-- 底部按钮 -->
 <view class="footer">
 
-  <!-- 打开联系客服按钮 -->
-  <button class="contact" open-type="contact" type="primary">
-    微信原生客服窗口
-  </button>
+ <!-- 打开客服窗口，隐藏覆盖在联系客服按钮上 -->
+  <button class="contact" open-type="contact" type="primary">打开微信原生客服回话</button>
 
   <view class="btn-left">
     <view class="iconfont icon-kefu"></view>
@@ -48,7 +52,7 @@
     <view>购物车</view>
   </navigator>
 
-  <view class="btn-right">
+  <view class="btn-right" bindtap="handleCartAdd">
     加入购物车
   </view>
   <view class="btn-right">
