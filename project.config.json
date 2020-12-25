@@ -104,10 +104,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "pages/cart/index",
 					"pathName": "pages/cart/index",
-					"query": "goods_id=57444",
+					"query": "",
 					"scene": null
 				}
 			]
