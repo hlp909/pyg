@@ -52,3 +52,20 @@
   </view>
 </view>
 
+<!-- 底部 -->
+<view class="footer">
+  <view class="footer-left">
+       <icon type="success" color="red" plain size="14"></icon>全选
+  </view>
+
+  <view class="footer-center">
+    <view class="center-top">
+      合计：<text>￥ 999999</text>
+    </view>
+
+    <view class="center-btm">包含运费</view>
+  </view>
+
+  <view class="footer-right">结算</view>
+</view>
+
