@@ -14,15 +14,84 @@
   align-items: center;
 }
 
-.address-tel{
+.address-tel {
   display: flex;
   align-items: center;
 }
-.address-detail{
+
+.address-detail {
   padding: 20rpx;
   padding-top: 0;
 }
-.address-image{
+
+.address-image {
   height: 14rpx;
   width: 100%;
+}
+
+.goods-list {
+  padding: 20rpx;
+}
+
+.goods-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20rpx;
+}
+
+.goods-item icon {
+  padding-right: 20rpx;
+}
+
+.goods-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goods-info image {
+  height: 160rpx;
+  width: 160rpx;
+  padding-right: 20rpx;
+}
+
+.info-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-title{
+  display: -webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.info-bottom{
+  padding-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.info-price{
+  font-size: 16px;
+  color: var(--themeColor);
+}
+.info-num{
+  display: flex;
+  align-items: center;
+}
+.info-num input{
+  width: 60px;
+  text-align: center;
+}
+.info-num-btn{
+  border: 1px solid #999;
+  padding: 5rpx 20rpx;
 }
