@@ -30,10 +30,12 @@ Page({
   onShow(){
     // 每次打开页面时都获取购物车的数据
     const goods=wx.getStorageSync("goods")||null; 
-     
     this.setData({
       goods
     })
+
+    // 计算总价格
+    this.handleAllPrice();
   },
 
   // 数量减1
@@ -43,12 +45,10 @@ Page({
     if (goods[id].number>1){
       // 数量减1
       goods[id].number--;  
-      // 修改data值
-      this.setData({
-        goods
-      });
-          // 保存到本地
-      wx.setStorageSync('goods', goods)
+      // 封装修改data值，并保存到本地
+      this.getdata()
+      // 计算总价格
+      this.handleAllPrice();
     }else{
       // 判断数量是否小于等于1
       wx.showModal({
@@ -60,12 +60,10 @@ Page({
           }
           // 由于showModal是异步的，所以需要把修改data的值放到success中来
 
-          // 修改data值
-          this.setData({
-            goods
-          });
-              // 保存到本地
-          wx.setStorageSync('goods', goods)
+          // 封装修改data值，并保存到本地
+          this.getdata()
+          // 计算总价格
+          this.handleAllPrice();
         }
       })
     }
@@ -89,12 +87,10 @@ Page({
     if(value===0){
       goods[id].number=1;
     }
-    // 修改data值
-    this.setData({
-      goods
-    });
-    // 保存到本地
-    wx.setStorageSync('goods', goods)
+    // 封装修改data值，并保存到本地
+    this.getdata()
+    // 计算总价格
+    this.handleAllPrice();
   },
 
   // 数量+1
@@ -102,12 +98,10 @@ Page({
     const {id} = e.target.dataset;
     const {goods}=this.data;
     goods[id].number++;
-    // 修改data值
-    this.setData({
-      goods
-    });
-    // 保存到本地
-    wx.setStorageSync('goods',goods)
+    // 封装修改data值，并保存到本地
+    this.getdata()
+    // 计算总价格
+    this.handleAllPrice();
   },
 
   // 点击选中状态取反
@@ -115,11 +109,39 @@ Page({
     const { id } = e.target.dataset;
     const { goods } = this.data;
     goods[id].selected = !goods[id].selected
-        // 修改data值
+    // 封装修改data值，并保存到本地
+    this.getdata()
+    // 计算总价格
+    this.handleAllPrice();
+  },
+
+  // 封装计算总价格
+  handleAllPrice(e){
+    const { goods } = this.data;
+    let Price=0;
+    let Number = 0;
+    // 开始计算，v就是key,也就是商品id
+    Object.keys(goods).forEach(v=>{
+      // 当前的商品必须是选中的
+      if(goods[v].selected){
+        Price += (goods[v].goods_price * goods[v].number);
+        Number += goods[v].number;
+      }
+    })
+    this.setData({
+      totalPrice: Price,
+      totalNumber:Number
+    })
+  },
+
+  // 封装修改data值，并保存到本地
+  getdata(){
+    const { goods } = this.data;
+    // 修改data值
     this.setData({
       goods
-    })
+    });
     // 保存到本地
     wx.setStorageSync('goods', goods)
-  },
+  }
 })
