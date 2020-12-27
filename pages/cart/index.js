@@ -47,15 +47,36 @@ Page({
     const { id } = e.target.dataset;
     const { goods } = this.data;
     if (goods[id].number>1){
+      // 数量减1
       goods[id].number--;  
+      // 修改data值
+      this.setData({
+        goods
+      });
+      wx.setStorageSync('goods', goods)
+    }else{
+      // 判断数量是否小于等于1
+      wx.showModal({
+        title: '提示',
+        content: '是否要删除该商品？',
+        success:(res)=> {
+          if (res.confirm) {
+           delete goods[id];
+          }
+          // 由于showModal是异步的，所以需要把修改data的值放到success中来
+
+          // 修改data值
+          this.setData({
+            goods
+          });
+          wx.setStorageSync('goods', goods)
+        }
+      })
     }
-    this.setData({
-      goods
-    });
-    wx.setStorageSync('goods', goods)
+   
   },
   // 输入框输入数量
-  handleInput(){
+  handleInput(e){
 
   },
   // 数量+1
