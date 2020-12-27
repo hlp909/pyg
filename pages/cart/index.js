@@ -4,11 +4,11 @@ Page({
     // 收货地址
     address:{},
     // 购物车商品列表
-    goods:null
+    goods:null,
     // 总价格
-    // totalPrice:0,
-    // // 总数量
-    // totalNumber:0
+    totalPrice:0,
+    // 总数量
+    totalNumber:0
   },
 
   // 点击获取收货地址
@@ -30,6 +30,7 @@ Page({
   onShow(){
     // 每次打开页面时都获取购物车的数据
     const goods=wx.getStorageSync("goods")||null; 
+     
     this.setData({
       goods
     })
@@ -73,12 +74,33 @@ Page({
         }
       })
     }
-   
   },
+
   // 输入框输入数量
   handleInput(e){
-
+    const { id } = e.target.dataset;
+    const { goods } = this.data;
+    goods[id].number=+e.detail.value
+    // 修改data值
+    this.setData({
+      goods
+    });
   },
+
+  bindChange(e){
+    const { id } = e.target.dataset;
+    const { goods } = this.data;
+    const value = +e.detail.value
+    // 修改data值
+    if(value===0){
+      goods[id].number=1;
+    }
+    this.setData({
+      goods
+    });
+    wx.setStorageSync('goods', goods)
+  },
+
   // 数量+1
   handleAdd(e){
     const {id} = e.target.dataset;
