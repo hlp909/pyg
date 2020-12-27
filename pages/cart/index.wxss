@@ -31,6 +31,7 @@
 
 .goods-list {
   padding: 20rpx;
+  margin-bottom: 80rpx;
 }
 
 .goods-item {
@@ -53,8 +54,8 @@
 }
 
 .goods-info image {
-  height: 160rpx;
-  width: 160rpx;
+  height: 180rpx;
+  width: 180rpx;
   padding-right: 20rpx;
 }
 
