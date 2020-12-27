@@ -26,9 +26,10 @@
       <!-- 左侧被选中状态 -->
       <icon 
       type="success" 
-      color="{{selected?'red':'gray'}}" 
+      color="{{item.selected?'red':'gray'}}" 
       plain size="14"
       bindtap="handleSelected"
+      data-id="{{item.goods_id}}"
       ></icon>
 
       <!-- 右侧商品详情信息 -->

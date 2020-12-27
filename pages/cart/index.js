@@ -36,13 +36,6 @@ Page({
     })
   },
 
-  // 点击取消选中状态
-  handleSelected(){
-    this.setData({
-      selected:!this.data.selected
-    })
-  },
-
   // 数量减1
   handleReduce(e){
     const { id } = e.target.dataset;
@@ -54,6 +47,7 @@ Page({
       this.setData({
         goods
       });
+          // 保存到本地
       wx.setStorageSync('goods', goods)
     }else{
       // 判断数量是否小于等于1
@@ -70,6 +64,7 @@ Page({
           this.setData({
             goods
           });
+              // 保存到本地
           wx.setStorageSync('goods', goods)
         }
       })
@@ -91,13 +86,14 @@ Page({
     const { id } = e.target.dataset;
     const { goods } = this.data;
     const value = +e.detail.value
-    // 修改data值
     if(value===0){
       goods[id].number=1;
     }
+    // 修改data值
     this.setData({
       goods
     });
+    // 保存到本地
     wx.setStorageSync('goods', goods)
   },
 
@@ -106,9 +102,24 @@ Page({
     const {id} = e.target.dataset;
     const {goods}=this.data;
     goods[id].number++;
+    // 修改data值
     this.setData({
       goods
     });
+    // 保存到本地
     wx.setStorageSync('goods',goods)
-  }
+  },
+
+  // 点击选中状态取反
+  handleSelected(e) {
+    const { id } = e.target.dataset;
+    const { goods } = this.data;
+    goods[id].selected = !goods[id].selected
+        // 修改data值
+    this.setData({
+      goods
+    })
+    // 保存到本地
+    wx.setStorageSync('goods', goods)
+  },
 })
