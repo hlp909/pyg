@@ -8,7 +8,9 @@ Page({
     // 总价格
     totalPrice:0,
     // 总数量
-    totalNumber:0
+    totalNumber:0,
+    // 全选状态
+    allSelected:true
   },
 
   // 点击获取收货地址
@@ -113,6 +115,8 @@ Page({
     this.getdata()
     // 计算总价格
     this.handleAllPrice();
+    // 判断全选状态
+    this.handleAllSelected()
   },
 
   // 封装计算总价格
@@ -143,5 +147,20 @@ Page({
     });
     // 保存到本地
     wx.setStorageSync('goods', goods)
+  },
+
+  // 全选状态
+  handleAllSelected(){
+    const { goods } = this.data;
+    let allSelected=true;
+    Object.keys(goods).forEach(v=>{
+      if(!goods[v].selected){
+        allSelected = false;
+      }
+    })
+
+    this.setData({
+      allSelected
+    })
   }
 })
