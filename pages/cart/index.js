@@ -220,6 +220,8 @@ Page({
   //     console.log(res)
   //   })
   // 判断本地是否有token,如果有token就转到支付页，没有的话就跳转到登录页
+    
+
   if(wx.getStorageSync("token")){
     wx.navigateTo({
       url: '/pages/order/index',

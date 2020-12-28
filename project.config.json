@@ -62,9 +62,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/goods_list/index",
-					"pathName": "pages/goods_list/index",
+					"id": 1,
+					"name": "pages/order/index",
+					"pathName": "pages/order/index",
 					"query": "",
 					"scene": null
 				},
@@ -115,6 +115,13 @@
 					"name": "pages/auth/index",
 					"pathName": "pages/auth/index",
 					"query": "授权",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/order/index",
+					"pathName": "pages/order/index",
+					"query": "",
 					"scene": null
 				}
 			]
