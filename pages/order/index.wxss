@@ -36,7 +36,7 @@
 
 .goods-list {
   padding: 20rpx;
-  margin-bottom: 80rpx;
+
 }
 
 .goods-item {
@@ -142,4 +142,10 @@
   text-align: center;
   color: white;
   background: var(--themeColor);
+}
+
+.price{
+  padding: 20rpx;
+  color: var(--themeColor);
+  font-size: 14px;
 }
