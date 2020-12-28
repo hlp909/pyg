@@ -22,6 +22,10 @@
 
 <view class="goods-list">
   <!-- 商品列表 -->
+  <!-- 有商品的时候显示 -->
+  <!-- <block wx:if="{{goods.length!==0}}">  
+  </block> -->
+
   <view class="goods-item" wx:for="{{goods}}" wx:key="{{goods_id}}">
       <!-- 左侧被选中状态 -->
       <icon 
@@ -59,7 +63,12 @@
               </view>
           </view>
       </view>
-  </view>
+      </view>
+   
+  <!-- <block wx:else>
+    <image mode="widthFix"  src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3334466282,826560232&fm=26&gp=0.jpg"></image>
+  </block> -->
+  
 </view>
 
 <!-- 底部 -->
@@ -80,6 +89,6 @@
     <view class="center-btm">包含运费</view>
   </view>
 
-  <view class="footer-right">结算({{totalNumber}})</view>
+  <view class="footer-right" bindtap="handleCheckout">结算({{totalNumber}})</view>
 </view>
 

@@ -1,4 +1,4 @@
-// pages/cart/index.js
+import { request } from "../../request/index.js"
 Page({
   data:{
     // 收货地址
@@ -183,5 +183,29 @@ Page({
     wx.setStorageSync('goods', goods)
     // 计算总价格
     this.handleAllPrice();
+  },
+
+  // 结算订单
+  handleCheckout(){
+    const { goods, totalPrice,address } = this.data;
+    // 把对象转化为数组
+    const goodsArr=Object.keys(goods).map(v=>{
+      goods[v].goods_number = goods[v].number;
+      return goods[v];
+    })
+
+    // 提交订单
+    request({
+      url:"/my/orders/create",
+      method:"POST",
+      data:{
+        order_price: totalPrice,
+        consignee_addr:address.detail,   //一般情况地址是个对象，而不是一个字符串，接口问题
+        goods:goodsArr
+      }
+    }).then(res=>{
+      console.log(res)
+    })
   }
+
 })
