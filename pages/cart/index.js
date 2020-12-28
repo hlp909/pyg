@@ -153,6 +153,7 @@ Page({
   handleAllSelected(){
     const { goods } = this.data;
     let allSelected=true;
+    // 判断有一个是否没选中的
     Object.keys(goods).forEach(v=>{
       if(!goods[v].selected){
         allSelected = false;
@@ -162,5 +163,25 @@ Page({
     this.setData({
       allSelected
     })
+  },
+
+  // 点击全选按钮事件
+  handleAllSelectedEvent(){
+    const { goods,allSelected } = this.data;
+
+    // 循环取反状态，取反是根据allSelected
+    Object.keys(goods).forEach(v=>{
+      goods[v].selected=!allSelected
+    })
+    // 修改data值
+    this.setData({
+      goods,
+      // 判断全选状态
+      allSelected:!allSelected
+    });
+    // 保存到本地
+    wx.setStorageSync('goods', goods)
+    // 计算总价格
+    this.handleAllPrice();
   }
 })
