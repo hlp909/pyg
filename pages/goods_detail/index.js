@@ -66,7 +66,6 @@ Page({
 
     //判断商品是否已经在购物车中
     const number = goods[goods_id] ? goods[goods_id].number + 1 : 1;
-    console.log(number)
     //  前面四个属性是商品详情提供的（需要在购物车页面中渲染）
     // number， selected属性是自己定义给购物车页面使用的
     goods[goods_id] = {

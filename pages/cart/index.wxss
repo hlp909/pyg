@@ -28,6 +28,11 @@
   height: 14rpx;
   width: 100%;
 }
+.empty{
+  font-size: 16px;
+  color: var(--themeColor);
+  margin: 30rpx;
+}
 
 .goods-list {
   padding: 20rpx;
