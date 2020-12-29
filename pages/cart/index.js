@@ -132,7 +132,7 @@ Page({
   },
 
   // 封装计算总价格
-  handleAllPrice(e){
+  handleAllPrice(){
     let { goods } = this.data;
     let Price=0;
     let Number = 0;
@@ -198,6 +198,8 @@ Page({
   },
 
   // 结算订单
+
+  
   handleCheckout(){
     // 测试提交
   //   const { goods, totalPrice,address } = this.data;
@@ -220,8 +222,10 @@ Page({
   //     console.log(res)
   //   })
   // 判断本地是否有token,如果有token就转到支付页，没有的话就跳转到登录页
+    // wx.navigateTo({
+    //   url: '/pages/order/index'
+    // })
     
-
   if(wx.getStorageSync("token")){
     wx.navigateTo({
       url: '/pages/order/index',

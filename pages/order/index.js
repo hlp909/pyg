@@ -1,4 +1,4 @@
-// pages/order/index.js
+import { request } from "../../request/index.js"
 Page({
 
   /**
@@ -13,12 +13,12 @@ Page({
     totalPrice:0
   },
 
-  onLoad(){
+  onLoad: function (options){
     this.handleAllPrice();
   },
 
    // 封装计算总价格
-  handleAllPrice(e) {
+  handleAllPrice() {
     let { goods } = this.data;
     let Price = 0;
     let Number = 0;
@@ -38,7 +38,26 @@ Page({
 
   // 立即支付
   handlePay(){
-    
+    const {goods, address, totalPrice}=this.data;
+    const newGoods=Object.keys(goods).map(v=>{
+      goods[v].goods_number=goods[v].number;
+      return goods[v];
+    })
+
+    request({
+      url:"/my/orders/create",
+      method:"POST",
+      data:{
+        order_price:totalPrice,
+        consignee_addr:address.detail,
+        goods: newGoods
+      },
+      header:{
+        Authorization:wx.getStorageSync("token")
+      }
+    }).then(res=>{
+      console.log(res)
+    })
   }
 
 })

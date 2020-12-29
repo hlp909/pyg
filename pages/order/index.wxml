@@ -20,7 +20,7 @@
 <view class="goods-list">
 
   <!-- 商品列表 -->
-  <view class="goods-item" wx:for="{{goods}}" wx:key="{{index}}">
+  <view class="goods-item" wx:for="{{goods}}" wx:key="{{index}}" wx:if="{{item.selected}}">
     
       <!-- 右侧商品详情信息 -->
       <view class="goods-info">
