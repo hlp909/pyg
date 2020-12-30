@@ -1,0 +1,8 @@
+<view style="padding:30rpx;">
+   <button 
+   open-type="getUserInfo" 
+   bindgetuserinfo="handleGetUserInfo"
+   type="primary"
+   plain
+   >授权</button>
+</view>

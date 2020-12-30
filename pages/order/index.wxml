@@ -1,12 +1,9 @@
 <!-- 有收货地址的时候 -->
-
-  <!-- 有收货地址的时候 -->
 <view class="address">
   <view class="address-info">
     <view>收货人：{{address.userName}}</view>
     <view class="address-tel">
       <text>{{address.telNumber}}</text>
-      <view class="iconfont icon-dayuhao"></view>
     </view>
   </view>
 
@@ -16,17 +13,14 @@
   <image class="address-image" src="../../icons/cart_border@2x.png" mode="aspectFill"></image>
 </view>
 
-<!-- 购物车-->
+  <!-- 购物车有商品-->
 <view class="goods-list">
-
   <!-- 商品列表 -->
-  <view class="goods-item" wx:for="{{goods}}" wx:key="{{index}}" wx:if="{{item.selected}}">
-    
+  <view class="goods-item" wx:for="{{goods}}" wx:key="{{index}}">
       <!-- 右侧商品详情信息 -->
       <view class="goods-info">
           <!-- 图片 -->
             <image src="{{item.goods_small_logo}}" mode="aspectFill"></image>
- 
           <!-- 商品标题价格数量 -->
           <view class="info-right">
               <!-- 标题 -->
@@ -38,7 +32,7 @@
                   <view class="info-price">￥{{item.goods_price}}</view>
                    <!-- 加减数量 -->
                   <view class="info-num">
-                   x {{item.number}} 件
+                    x {{item.number}} 件
                   </view>
               </view>
           </view>
@@ -46,9 +40,14 @@
     </view>
 </view>
 
-<!-- 总价格 -->
-<view class="price">总价格：{{totalPrice}} 元</view>
-
-<view>
-    <button type="primary" bindtap="handlePay">立即支付</button>
+<!-- 底部 -->
+<view class="footer">
+  <view class="footer-center">
+    <view class="center-top">
+      总价格：<text>￥ {{totalPrice}}</text>
+    </view>
+    <view class="center-btm">包含运费</view>
+  </view>
+  <view class="footer-right" bindtap="handlePay">结算({{totalNumber}})</view>
 </view>
+
