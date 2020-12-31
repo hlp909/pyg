@@ -1,0 +1,49 @@
+.container{
+  height: 45vh;
+  background:var(--themeColor);
+  overflow: hidden;
+  position: relative;
+}
+.userInfo-iamge-wrap{
+  position: relative;
+}
+.userInfo-iamge-wrap .user-bg{
+  height: 48vh;
+  filter: blur(15rpx);
+}
+.userInfo-iamge-wrap .user-info{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.user-info image{
+  height: 160rpx;
+  width: 160rpx;
+  border-radius: 50%;
+}
+.userName{
+  margin-top: 30rpx;
+  color: #fff;
+}
+.user-btn{
+  display: flex;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid yellowgreen;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  color: white;
+  font-size: 16px;
+}
+
+.user-content{
+  background: #ccc;
+  height: 90vh;
+}

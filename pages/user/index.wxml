@@ -1,1 +1,23 @@
-<navigator url="/pages/login/index">登录</navigator>
+<view class="container">
+  <view class="userInfo-iamge-wrap"  wx:if="{{userInfo.avatarUrl}}">
+    <image src="{{userInfo.avatarUrl}}" class="user-bg"></image>
+    <view class="user-info">
+        <image src="{{userInfo.avatarUrl}}" class="user-icon"></image>
+        <view class="userName">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+
+   <view  wx:else class="user-btn">
+      <navigator url="/pages/login/index">登录</navigator>
+   </view>
+</view>
+
+<view class="user-content">
+  <view class="content">
+    <view class="histroy">
+      <view>0</view>
+      <view>收藏的店铺</view>
+    </view>
+  </view>
+    
+</view>
